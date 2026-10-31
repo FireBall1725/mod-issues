@@ -1,0 +1,111 @@
+name: Bug report
+description: Something in one of my mods doesn't work the way it should.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill in every required field. Reports without a mod version, loader version and log get closed until they're added.
+        A game crash goes in the **Crash report** form instead.
+  - type: dropdown
+    id: mod
+    attributes:
+      label: Mod
+      description: Which mod is this about?
+      options:
+        - AE2 Traffic Monitor
+        - "Create: Turbolifts"
+        - FireCore
+        - Auto Gui Scale
+        - QMK Extra Keybinds
+        - DevWorld
+    validations:
+      required: true
+  - type: input
+    id: mod_version
+    attributes:
+      label: Mod version
+      description: The version in the jar file name or the mod list, for example 26.10.1. A branch name or commit hash is fine for dev builds.
+      placeholder: "26.10.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: mc_version
+    attributes:
+      label: Minecraft version
+      options:
+        - 1.20
+        - 1.21
+        - 26.1
+        - 26.2
+        - 26.3
+        - Other (write it in the description)
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Mod loader
+      options:
+        - NeoForge
+        - Fabric
+        - Forge
+        - Other (write it in the description)
+    validations:
+      required: true
+  - type: input
+    id: platform_version
+    attributes:
+      label: Mod loader version
+      description: The loader build, not the Minecraft version. NeoForge looks like 21.1.172; Fabric Loader looks like 0.16.9.
+      placeholder: "21.1.172"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened
+      description: Say what you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps from a fresh world if you can. If it only happens sometimes, say how often.
+      placeholder: |
+        1. Place a ...
+        2. Right-click with ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other mods and modpack
+      description: Name the modpack and version, or list the mods installed next to this one. Say "none" if it's only this mod and its requirements.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log
+      description: Paste `logs/latest.log` from your instance, or a link to it on [mclo.gs](https://mclo.gs). Use the link if the file is longer than a few hundred lines. In a server bug, use the server's log.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or video
+      description: Drag files in here. A screenshot of the problem helps for anything visual.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the open and closed issues and this isn't already reported.
+          required: true
+        - label: I'm on the newest release of the mod for my Minecraft version.
+          required: true

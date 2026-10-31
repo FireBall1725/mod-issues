@@ -1,0 +1,31 @@
+name: Label by mod
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add the mod label from the form answer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          BODY: ${{ github.event.issue.body }}
+        run: |
+          mod=$(printf '%s\n' "$BODY" | awk '/^### Mod$/ {getline; getline; print; exit}')
+          case "$mod" in
+            "AE2 Traffic Monitor") label="mod: ae2-traffic-monitor" ;;
+            "Create: Turbolifts")  label="mod: create-turbolifts" ;;
+            "FireCore")            label="mod: firecore" ;;
+            "Auto Gui Scale")      label="mod: auto-gui-scale" ;;
+            "QMK Extra Keybinds")  label="mod: qmk-extra-keybinds" ;;
+            "DevWorld")            label="mod: devworld" ;;
+            *) echo "No mod answer found"; exit 0 ;;
+          esac
+          gh issue edit "$NUMBER" --add-label "$label"

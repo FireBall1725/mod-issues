@@ -1,0 +1,112 @@
+name: Crash report
+description: The game, the server or a world crashes or won't load.
+title: "[Crash] "
+labels: ["bug", "crash"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when Minecraft closes, hangs on load or throws a crash screen. Upload the files; don't retype the error.
+  - type: dropdown
+    id: mod
+    attributes:
+      label: Mod
+      description: Which mod is this about?
+      options:
+        - AE2 Traffic Monitor
+        - "Create: Turbolifts"
+        - FireCore
+        - Auto Gui Scale
+        - QMK Extra Keybinds
+        - DevWorld
+    validations:
+      required: true
+  - type: input
+    id: mod_version
+    attributes:
+      label: Mod version
+      description: The version in the jar file name or the mod list, for example 26.10.1. A branch name or commit hash is fine for dev builds.
+      placeholder: "26.10.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: mc_version
+    attributes:
+      label: Minecraft version
+      options:
+        - 1.20
+        - 1.21
+        - 26.1
+        - 26.2
+        - 26.3
+        - Other (write it in the description)
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Mod loader
+      options:
+        - NeoForge
+        - Fabric
+        - Forge
+        - Other (write it in the description)
+    validations:
+      required: true
+  - type: input
+    id: platform_version
+    attributes:
+      label: Mod loader version
+      description: The loader build, not the Minecraft version. NeoForge looks like 21.1.172; Fabric Loader looks like 0.16.9.
+      placeholder: "21.1.172"
+    validations:
+      required: true
+  - type: dropdown
+    id: side
+    attributes:
+      label: Where did it crash
+      options:
+        - Client (singleplayer)
+        - Client (joining or playing on a server)
+        - Dedicated server
+        - While loading the game, before the title screen
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What you were doing
+      description: What was on screen or running when it crashed, and whether it happens every time.
+    validations:
+      required: true
+  - type: textarea
+    id: crash_report
+    attributes:
+      label: Crash report
+      description: Paste the file from `crash-reports/` (the newest one), or a link to it on [mclo.gs](https://mclo.gs). If there's no crash report file, say so and paste `logs/latest.log` in the next box.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log
+      description: Link to `logs/latest.log` on [mclo.gs](https://mclo.gs) from the same run. For a startup crash, also `logs/debug.log` if it exists.
+    validations:
+      required: true
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other mods and modpack
+      description: Name the modpack and version, or list the mods installed. Say "none" if it's only this mod and its requirements.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the open and closed issues and this isn't already reported.
+          required: true
+        - label: I'm on the newest release of the mod for my Minecraft version.
+          required: true

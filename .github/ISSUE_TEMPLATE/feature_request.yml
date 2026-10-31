@@ -1,0 +1,81 @@
+name: Feature request
+description: Suggest something one of my mods should do.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One idea per request. I read all of them; I can't promise to build them, and a clear use case moves a request up.
+  - type: dropdown
+    id: mod
+    attributes:
+      label: Mod
+      options:
+        - AE2 Traffic Monitor
+        - "Create: Turbolifts"
+        - FireCore
+        - Auto Gui Scale
+        - QMK Extra Keybinds
+        - DevWorld
+    validations:
+      required: true
+  - type: dropdown
+    id: mc_version
+    attributes:
+      label: Minecraft version you play on
+      options:
+        - 1.20
+        - 1.21
+        - 26.1
+        - 26.2
+        - 26.3
+        - Other (write it in the description)
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Mod loader you play on
+      options:
+        - NeoForge
+        - Fabric
+        - Forge
+        - Other (write it in the description)
+    validations:
+      required: true
+  - type: input
+    id: mod_version
+    attributes:
+      label: Mod version you have now
+      placeholder: "26.10.1"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do
+      description: Describe the situation that made you want this, not the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you'd like the mod to do
+      description: How it should look or behave. Mockups and screenshots are welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you do today instead
+      description: A workaround, a config option or another mod that gets partway there.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the open and closed issues and nobody has asked for this already.
+          required: true
+        - label: I checked the mod's config and docs and it can't already do this.
+          required: true

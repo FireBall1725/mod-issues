@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Chat on Discord (not for support)
+    url: https://discord.gg/aPTP9qAdVJ
+    about: Chat and news about the mods. It isn't a support channel; file a bug or crash report here instead.
+  - name: Support the mods on Ko-fi
+    url: https://ko-fi.com/fireball1725
+    about: If you like the mods and want to show some support, you can buy me a sushi roll.

@@ -1,0 +1,101 @@
+name: Compatibility problem
+description: One of my mods breaks, or is broken by, another mod.
+title: "[Compat] "
+labels: ["compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For two mods that don't work together. Name the other mod, its version and where you downloaded it.
+  - type: dropdown
+    id: mod
+    attributes:
+      label: Mod
+      description: Which mod is this about?
+      options:
+        - AE2 Traffic Monitor
+        - "Create: Turbolifts"
+        - FireCore
+        - Auto Gui Scale
+        - QMK Extra Keybinds
+        - DevWorld
+    validations:
+      required: true
+  - type: input
+    id: mod_version
+    attributes:
+      label: Mod version
+      description: The version in the jar file name or the mod list, for example 26.10.1. A branch name or commit hash is fine for dev builds.
+      placeholder: "26.10.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: mc_version
+    attributes:
+      label: Minecraft version
+      options:
+        - 1.20
+        - 1.21
+        - 26.1
+        - 26.2
+        - 26.3
+        - Other (write it in the description)
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Mod loader
+      options:
+        - NeoForge
+        - Fabric
+        - Forge
+        - Other (write it in the description)
+    validations:
+      required: true
+  - type: input
+    id: platform_version
+    attributes:
+      label: Mod loader version
+      description: The loader build, not the Minecraft version. NeoForge looks like 21.1.172; Fabric Loader looks like 0.16.9.
+      placeholder: "21.1.172"
+    validations:
+      required: true
+  - type: input
+    id: other_mod
+    attributes:
+      label: Other mod
+      description: Name, version and download page (Modrinth or CurseForge link).
+      placeholder: "Applied Energistics 2 19.2.17, https://modrinth.com/mod/ae2"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What goes wrong
+      description: Say what happens with both installed, and what happens with only one of them.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log
+      description: Paste `logs/latest.log`, or a link to it on [mclo.gs](https://mclo.gs). Include the crash report if the game crashed.
+      render: shell
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the open and closed issues and this isn't already reported.
+          required: true
+        - label: Both mods are on the newest release for my Minecraft version.
+          required: true
