@@ -21,6 +21,7 @@ jobs:
           mod=$(printf '%s\n' "$BODY" | awk '/^### Mod$/ {getline; getline; print; exit}')
           case "$mod" in
             "AE2 Traffic Monitor") label="mod: ae2-traffic-monitor" ;;
+            "AE2 Lights")          label="mod: ae2-lights" ;;
             "Create: Turbolifts")  label="mod: create-turbolifts" ;;
             "FireCore")            label="mod: firecore" ;;
             "Auto Gui Scale")      label="mod: auto-gui-scale" ;;

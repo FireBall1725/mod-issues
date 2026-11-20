@@ -13,6 +13,7 @@ body:
       label: Mod
       options:
         - AE2 Traffic Monitor
+        - AE2 Lights
         - "Create: Turbolifts"
         - FireCore
         - Auto Gui Scale

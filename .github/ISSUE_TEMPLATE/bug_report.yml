@@ -15,6 +15,7 @@ body:
       description: Which mod is this about?
       options:
         - AE2 Traffic Monitor
+        - AE2 Lights
         - "Create: Turbolifts"
         - FireCore
         - Auto Gui Scale
